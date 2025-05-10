@@ -1,5 +1,5 @@
 #!/bin/bash
-export TERM=vt100 
+export TERM=ansi
 
 #!/bin/bash
 
@@ -18,4 +18,5 @@ fi
 
 # Log execution
 echo "Starting Frotz with $GAMEFILE" >> "$LOGFILE"
-/usr/games/frotz -Z 0 "$GAMEFILE"
+/usr/games/frotz "$GAMEFILE"
+#/usr/games/frotz -Z 0 "$GAMEFILE"
