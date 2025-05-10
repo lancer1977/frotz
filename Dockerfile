@@ -1,28 +1,32 @@
+#FROM alpine:3.20
 FROM ubuntu:20.04
-RUN DEBIAN_FRONTEND=noninteractive apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+# Install dependencies
+RUN apk update && \
+    apk add --no-cache frotz xinetd bash
 
-# Install required packages
-RUN apt-get update && \
-    apt-get install -y frotz xinetd && \
-    rm -rf /var/lib/apt/lists/*
+# Create a non-root user and group
+RUN addgroup -S zork && adduser -S zork -G zork
 
-# Create game and script directories
-RUN mkdir -p /games /scripts
-#COPY games/zork1.dat /games/zork1.dat
+# Create directories and set ownership
+RUN mkdir -p /games /scripts && \
+    chown -R zork:zork /games /scripts
 
-# Copy in config and script
+# Copy scripts and config
 COPY zork-wrapper.sh /scripts/zork-wrapper.sh
 COPY xinetd.conf /etc/xinetd.d/zork
 
-# Make wrapper executable
-RUN chmod +x /scripts/zork-wrapper.sh
+# Set permissions
+RUN chmod +x /scripts/zork-wrapper.sh && \
+    chown zork:zork /scripts/zork-wrapper.sh /etc/xinetd.d/zork
+
+# Set environment variable
+ENV GAME_FILE=zork1.dat
 
 # Expose telnet port
 EXPOSE 23
 
-# Default game file
-ENV GAME_FILE=zork1.dat
+# Switch to non-root user
+USER zork
 
 # Start xinetd
 CMD ["xinetd", "-dontfork"]
