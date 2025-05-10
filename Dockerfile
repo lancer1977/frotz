@@ -1,4 +1,6 @@
-FROM debian:bullseye-slim
+FROM ubuntu:20.04
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 # Install required packages
 RUN apt-get update && \
@@ -7,7 +9,7 @@ RUN apt-get update && \
 
 # Create game and script directories
 RUN mkdir -p /games /scripts
-COPY games/zork1.dat /games/zork1.dat
+#COPY games/zork1.dat /games/zork1.dat
 
 # Copy in config and script
 COPY zork-wrapper.sh /scripts/zork-wrapper.sh
