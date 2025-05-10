@@ -7,8 +7,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y frotz xinetd bash && \
     rm -rf /var/lib/apt/lists/*
 
-# Create a non-root user and group
-RUN groupadd --system zork && useradd --system --gid zork --home /home/zork --create-home zork
+# Create user zork with UID and GID 1000
+RUN groupadd -g 1000 zork && useradd -u 1000 -g 1000 -m -s /bin/bash zork
 
 # Create directories and set ownership
 RUN mkdir -p /games /scripts && \
