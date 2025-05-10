@@ -1,11 +1,14 @@
-#FROM alpine:3.20
 FROM ubuntu:20.04
+
+# Suppress interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Install dependencies
-RUN apk update && \
-    apk add --no-cache frotz xinetd bash
+RUN apt-get update && apt-get install -y frotz xinetd bash && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create a non-root user and group
-RUN addgroup -S zork && adduser -S zork -G zork
+RUN groupadd --system zork && useradd --system --gid zork --home /home/zork --create-home zork
 
 # Create directories and set ownership
 RUN mkdir -p /games /scripts && \
