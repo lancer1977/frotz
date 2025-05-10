@@ -18,4 +18,4 @@ fi
 
 # Log execution
 echo "Starting Frotz with $GAMEFILE" >> "$LOGFILE"
-/usr/games/frotz  "$GAMEFILE" >> "$LOGFILE" 2>&1
+/usr/games/frotz -Z 0 "$GAMEFILE"
