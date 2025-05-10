@@ -1,2 +1,2 @@
 #!/bin/bash
-exec frotz "$GAME_FILE"
+exec /usr/games/frotz "/games/$GAME_FILE"

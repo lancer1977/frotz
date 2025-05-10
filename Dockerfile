@@ -22,7 +22,7 @@ RUN chmod +x /scripts/zork-wrapper.sh
 EXPOSE 23
 
 # Default game file
-ENV GAME_FILE=/games/zork1.dat
+ENV GAME_FILE=zork1.dat
 
 # Start xinetd
 CMD ["xinetd", "-dontfork"]
