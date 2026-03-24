@@ -17,3 +17,9 @@ This old POC code in `frotz_old/` and `zork/` is kept for reference only.
 ---
 
 *Last updated: 2026-03-07*
+
+
+## 📖 Documentation
+Detailed documentation can be found in the following sections:
+- [Feature Index](./docs/features/README.md)
+- [Core Capabilities](./docs/features/core-capabilities.md)
