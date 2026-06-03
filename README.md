@@ -19,6 +19,15 @@ This old POC code in `frotz_old/` and `zork/` is kept for reference only.
 *Last updated: 2026-03-07*
 
 
+## Tags
+
+- frotz
+- docs
+- signalr
+- ui
+- frontend
+- backend
+
 ## 📖 Documentation
 Detailed documentation can be found in the following sections:
 - [Feature Index](./docs/features/README.md)
