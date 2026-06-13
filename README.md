@@ -1,18 +1,19 @@
-# 🚫 DEPRECATED - Archived
+# 🚫 Retired and Archived
 
-**This repository is deprecated and archived.**
+**This repository is retired and archived.**
 
-The frotz integration has moved to:
+The live frotz integration now lives in the support surfaces below:
+
 - **Backend:** `~/code/channel-cheevos/src/ChannelCheevos.Core/Services/Frotz/`
 - **Frontend (Angular):** `~/code/cc-sidecar/src/app/component/terminal/`
 - **Blazor UI:** `~/code/channel-cheevos/src/ChannelCheevos/Components/Views/Frotz/`
 
-The live integration uses:
-- `FrotzSessionService` - process management
-- SignalR (GruHub) - real-time terminal I/O
-- xterm.js - browser terminal rendering
+The current support home is the combination of those active repos and surfaces.
+Use this repo only as a historical reference for the old POC, `frotz_old/`, and
+`zork/`.
 
-This old POC code in `frotz_old/` and `zork/` is kept for reference only.
+See [Archive Notes](./docs/ARCHIVE.md) for the retirement pointer and
+[Docs README](./docs/README.md) for the archive navigation entrypoint.
 
 ---
 
@@ -31,5 +32,6 @@ This old POC code in `frotz_old/` and `zork/` is kept for reference only.
 ## 📖 Documentation
 Detailed documentation can be found in the following sections:
 - [Docs Home](./docs/README.md)
+- [Archive Notes](./docs/ARCHIVE.md)
 - [Feature Index](./docs/features/README.md)
 - [Core Capabilities](./docs/features/core-capabilities.md)
